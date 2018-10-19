@@ -26,5 +26,5 @@ def carimhs(artist, judul):
         return err
         # print(err)
 
-a = carimhs("maroon 5","sugar")
+a = carimhs("Alan Walker","Alone")
 print(a)
