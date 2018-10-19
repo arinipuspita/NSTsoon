@@ -50,7 +50,7 @@ def carimhs(artist, judul):
     if 'error' not in data:
         nrp = data['result']['track']['name']
         lirik = data['result']['track']['text']
-        return nrp
+        return lirik
         # print(lirik)
 
     if 'error' in data:
