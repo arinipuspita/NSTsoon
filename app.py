@@ -42,24 +42,23 @@ handler = WebhookHandler('a69b96ed2f7d23b13f05e45bfb019499')
 notes = {}
 
 def carimhs(artist, judul):
-	artist = "maroon 5"
-	judul = "judul"
+    # URLmhs = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + judul + "?apikey=v3mwDfvdEaG64MTSHgm2Rtw4l00bfwLFhcWlymLV2bul7qQaASGSFeHAV85TjyYd"
 
-    URLmhs = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + judul + "?apikey=v3mwDfvdEaG64MTSHgm2Rtw4l00bfwLFhcWlymLV2bul7qQaASGSFeHAV85TjyYd"
+    # irham = requests.get(URLmhs)
+    # data = irham.json()
 
-    irham = requests.get(URLmhs)
-    data = irham.json()
+    # if 'error' not in data:
+    #     nrp = data['result']['track']['name']
+    #     lirik = data['result']['track']['text']
+    #     return lirik
+    #     # print(lirik)
 
-    if 'error' not in data:
-        nrp = data['result']['track']['name']
-        lirik = data['result']['track']['text']
-        return lirik
-        # print(lirik)
-
-    if 'error' in data:
-        err = data['error'];
-        return err
-        # print(err)
+    # if 'error' in data:
+    #     err = data['error'];
+    #     return err
+    #     # print(err)
+    a = artist
+    return judul
 
 
 # Post Request
@@ -81,7 +80,7 @@ def handle_message(event):
     gid = event.source.sender_id #get group_id
     profile = line_bot_api.get_profile(sender)
     # line_bot_api.reply_message(event.reply_token,TextSendMessage(text="masuk"))
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=carimhs(artist,judul)))
+    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=carimhs("maroon 5","sugar")))
 
 import os
 if __name__ == "__main__":
