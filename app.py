@@ -54,7 +54,8 @@ def carilirik(artist,judul):
     if 'error' in the data:
         err = data['error'];
         print(err)
-
+        
+    carimhs("maroon 5","sugar")
 
  Post Request
 @app.route("/callback", methods=['POST'])
