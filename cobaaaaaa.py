@@ -10,10 +10,10 @@ import requests, json
 
 
 def carimhs(artist, judul):
-    URLmhs = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + judul + "?apikey=v3mwDfvdEaG64MTSHgm2Rtw4l00bfwLFhcWlymLV2bul7qQaASGSFeHAV85TjyYd"
+    URL = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + judul + "?apikey=v3mwDfvdEaG64MTSHgm2Rtw4l00bfwLFhcWlymLV2bul7qQaASGSFeHAV85TjyYd"
 
-    irham = requests.get(URLmhs)
-    data = irham.json()
+    r = requests.get(URL)
+    data = r.json()
 
     if 'error' not in data:
         nrp = data['result']['track']['name']

@@ -42,23 +42,21 @@ handler = WebhookHandler('a69b96ed2f7d23b13f05e45bfb019499')
 notes = {}
 
 def carimhs(artist, judul):
-    # URLmhs = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + judul + "?apikey=v3mwDfvdEaG64MTSHgm2Rtw4l00bfwLFhcWlymLV2bul7qQaASGSFeHAV85TjyYd"
+    URLmhs = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + judul + "?apikey=v3mwDfvdEaG64MTSHgm2Rtw4l00bfwLFhcWlymLV2bul7qQaASGSFeHAV85TjyYd"
 
-    # irham = requests.get(URLmhs)
-    # data = irham.json()
+    irham = requests.get(URLmhs)
+    data = irham.json()
 
-    # if 'error' not in data:
-    #     nrp = data['result']['track']['name']
-    #     lirik = data['result']['track']['text']
-    #     return lirik
-    #     # print(lirik)
+    if 'error' not in data:
+        nrp = data['result']['track']['name']
+        lirik = data['result']['track']['text']
+        return nrp
+        # print(lirik)
 
-    # if 'error' in data:
-    #     err = data['error'];
-    #     return err
-    #     # print(err)
-    a = artist
-    return judul
+    if 'error' in data:
+        err = data['error'];
+        return err
+        # print(err)
 
 
 # Post Request
