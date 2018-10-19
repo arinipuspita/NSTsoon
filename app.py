@@ -49,13 +49,17 @@ def carilirik(artist,judul):
     if 'error' not in data:
         nrp = data['result']['track']['name']
         lirik = data['result']['track']['text'] 
-        print(lirik)
+        #print(lirik)
+       # name = data['track'][0]['name']
+        text = data['track'][0]['text']
+        data= "text : "+text
+        return data
 
     if 'error' in the data:
         err = data['error'];
         print(err)
         
-    carimhs("maroon 5","sugar")
+    #carimhs("maroon 5","sugar")
 
  Post Request
 @app.route("/callback", methods=['POST'])
