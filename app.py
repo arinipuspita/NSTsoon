@@ -41,24 +41,6 @@ handler = WebhookHandler('a13be1528f294201578d36297fc549a6')
 #===========[ NOTE SAVER ]=======================
 notes = {}
 
-#REQUEST DATA MHS
-def carimhs(input):
-    URLmhs = 
-"https://www.aditmasih.tk/api_yemima/show.php?nrp=" + 
-input
-    irham = requests.get(URLmhs)
-    data = irham.json()
-    err = "data tidak ditemukan"
-    
-    flag = data['flag']
-    if(flag == "1"):
-        nrp = data['data_admin'][0]['nrp']
-        nama = data['data_admin'][0]['nama']
-        kos = data['data_admin'][0]['alamat']
-
-        return nama + '\n' + nrp + '\n' + kos
-    elif(flag == "0"):
-        return err    
 
 # Post Request
 @app.route("/callback", methods=['POST'])
@@ -78,8 +60,8 @@ def handle_message(event):
     sender = event.source.user_id #get usesenderr_id
     gid = event.source.sender_id #get group_id
     profile = line_bot_api.get_profile(sender)
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=carimhs(text)))
-    #line_bot_api.reply_message(event.reply_token,TextSendMessage(text="masuk"))
+    line_bot_api.reply_message(event.reply_token,TextSendMessage(text="masuk"))
+
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
