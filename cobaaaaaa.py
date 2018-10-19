@@ -26,4 +26,5 @@ def carimhs(artist, judul):
         return err
         # print(err)
 
-carimhs("maroon 5","sugar")
+a = carimhs("maroon 5","sugar")
+print(a)
