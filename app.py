@@ -56,16 +56,17 @@ def carilirik(artist,judul):
         print(err)
 
 
-# Post Request
-#@app.route("/callback", methods=['POST'])
-#def callback():
-   # signature = request.headers['X-Line-Signature']
-    ##pp.logger.info("Request body: " + body)
-    #try:
-     #   handler.handle(body, signature)
-    #except InvalidSignatureError:
-     #   abort(400)
-    #return 'OK'
+ Post Request
+@app.route("/callback", methods=['POST'])
+def callback():
+    signature = request.headers['X-Line-Signature']
+     body = request.get_data(as_text=True)
+     app.logger.info("Request body: " + body)
+    try:
+        handler.handle(body, signature)
+    except InvalidSignatureError:
+        abort(400)
+    return 'OK'
 
 
 @handler.add(MessageEvent, message=TextMessage)
