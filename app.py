@@ -78,7 +78,8 @@ def handle_message(event):
     gid = event.source.sender_id #get group_id
     profile = line_bot_api.get_profile(sender)
     # line_bot_api.reply_message(event.reply_token,TextSendMessage(text="masuk"))
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=carimhs("Alan Walker","Alone")))
+    #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=carimhs("Alan Walker","Alone")))
+    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=carimhs(data[1],data[2])))
 
 import os
 if __name__ == "__main__":
