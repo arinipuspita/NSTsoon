@@ -44,19 +44,20 @@ notes = {}
 def carimhs(artist, judul):
     URLmhs = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + judul + "?apikey=v3mwDfvdEaG64MTSHgm2Rtw4l00bfwLFhcWlymLV2bul7qQaASGSFeHAV85TjyYd"
 
-    irham = requests.get(URLmhs)
-    data = irham.json()
+    r = requests.get(URLmhs)
+    data = r.json()
+    err= "data tidak ditemukan"
 
     if 'error' not in data:
         nrp = data['result']['track']['name']
         lirik = data['result']['track']['text']
+        print(lirik)
         return lirik
-        # print(lirik)
 
     if 'error' in data:
         err = data['error'];
+        print(err)
         return err
-        # print(err)
 
 
 # Post Request
@@ -80,7 +81,11 @@ def handle_message(event):
     data=text.split('/')
     # line_bot_api.reply_message(event.reply_token,TextSendMessage(text="masuk"))
     #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=carimhs("Alan Walker","Alone")))
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=carimhs(data[1], data[2])))
+    if(data[0]=='cari'):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=carimhs(data[1], data[2])))
+    else :
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="keyword yang anda masukkan salah"))
+    
 
 import os
 if __name__ == "__main__":
