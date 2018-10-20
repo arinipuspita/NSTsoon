@@ -84,7 +84,7 @@ def handle_message(event):
     if(data[0]=='cari'):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=carimhs(data[1], data[2])))
     else :
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="keyword yang anda masukkan salah"))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="keyword yang anda masukkan salah, tulis keyword dengan format : cari/nama artis/ judul lagu"))
     
 
 import os
