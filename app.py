@@ -49,7 +49,7 @@ def carilirik(artist, judul):
     err= "Lyric no found, try again later."
 
     if 'error' not in data:
-        nrp = data['result']['track']['name']
+        yey = data['result']['track']['name']
         lirik = data['result']['track']['text']
         print(lirik)
         return lirik
