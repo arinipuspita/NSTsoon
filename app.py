@@ -41,10 +41,10 @@ handler = WebhookHandler('a69b96ed2f7d23b13f05e45bfb019499')
 #===========[ NOTE SAVER ]=======================
 notes = {}
 
-def carimhs(artist, judul):
-    URLmhs = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + judul + "?apikey=v3mwDfvdEaG64MTSHgm2Rtw4l00bfwLFhcWlymLV2bul7qQaASGSFeHAV85TjyYd"
+def carilirik(artist, judul):
+    URLlirik = "https://orion.apiseeds.com/api/music/lyric/" + artist + "/" + judul + "?apikey=v3mwDfvdEaG64MTSHgm2Rtw4l00bfwLFhcWlymLV2bul7qQaASGSFeHAV85TjyYd"
 
-    r = requests.get(URLmhs)
+    r = requests.get(URLlirik)
     data = r.json()
     err= "Lyric no found, try again later."
 
@@ -82,7 +82,7 @@ def handle_message(event):
     # line_bot_api.reply_message(event.reply_token,TextSendMessage(text="masuk"))
     #line_bot_api.reply_message(event.reply_token,TextSendMessage(text=carimhs("Alan Walker","Alone")))
     if(data[0]=='cari'):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=carimhs(data[1], data[2])))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=carilirik(data[1], data[2])))
     else :
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text="keyword yang anda masukkan salah, tulis keyword dengan format : cari/nama artis/ judul lagu"))
     
