@@ -46,7 +46,7 @@ def carimhs(artist, judul):
 
     r = requests.get(URLmhs)
     data = r.json()
-    err= "data tidak ditemukan"
+    err= "Lyric no found, try again later."
 
     if 'error' not in data:
         nrp = data['result']['track']['name']
